@@ -1,0 +1,71 @@
+@mixin FlexSet
+	display: flex
+	justify-content: center
+	align-items: top
+	flex-wrap: wrap
+
+@mixin BtnSet($padding:10px, $background:#FFCDD2, $font-size: 20px)
+	padding: $padding
+	border: none
+	background: $background
+	letter-spacing: 3px
+	font-size: $font-size
+	font-weight: 400
+
+html,body
+	+FlexSet
+	width: 100%
+	height: 100%
+	font-family: sans-serif, 微軟正黑體	
+	background-color: #EF9A9A
+
+#app
+	display: flex
+	flex-direction: column
+
+span 
+	+FlexSet
+
+ul
+	padding-top: 5px
+
+li
+	background: #EEEEEE
+	padding: 10px
+	box-shadow: 2px 2px 5px rgba(gray,0.3)
+	position: relative
+	font-size: 20px 
+	letter-spacing: 2px
+
+
+.button 
+	+BtnSet
+	margin-bottom: 10px
+	
+	&:hover
+		box-shadow: 5px 5px 10px rgba(gray,0.3)
+		
+.btn_delete
+	+BtnSet(2px,#eee,20px)
+	color: #ccc
+	position: absolute
+	right: 3%
+	top: 50%
+	transform: translateY(-50%)
+	&:hover
+		color: #000
+	
+
+.title
+	text-align: center
+	margin: 20px
+	padding-top: 50px
+	font-size: 48px
+	font-weight: 600
+
+.input_Todo
+	height: 32px
+	margin: 16px
+
+.active
+	background-color: #FFF59D

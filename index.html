@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>TodoList</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="app">
+	<div class="title">
+	<h3>Todo List</h3>
+</div>
+	<input type="text" placeholder="新增代辦事項" v-model="NewTodo" @keyup.enter="AddTodo(NewTodo)" class="input_Todo"> 
+	<br>
+	<span><input type="button" @click="CompleteAll" value="完成全部" class="button">
+	<input type="button" @click="RemoveAll" value="刪除全部" class="button"></span>
+	<ul v-for="(Todo,Tid) in TodoList">
+		<li :class="{active:Todo.completed==true}"><input type="checkbox" v-model="Todo.completed" class="checkitem"> {{Todo.content}} <input type="button" value="X" @click="RemoveTodo(Todo)" class="btn_delete"></li>
+	</ul>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>
